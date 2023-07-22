@@ -25,5 +25,13 @@ def create():
     else:
         return "no esta"
 
+@app.route("/:init")
+def init():
+    un_usuario = request.args.get("content")
+
+    if un_usuario == "bravo":
+        return {"payload":"alfa"}
+    else:  return "no esta"
+
 if __name__ == "__Main__":
     app.run(debug=True)
