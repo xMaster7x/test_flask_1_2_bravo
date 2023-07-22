@@ -17,5 +17,13 @@ def read():
         "payload": user,
     }
 
+@app2.route("/create", methods=["POST"])
+def create():
+    userlist = request.args.get("usuario")
+    if userlist in LISTA:
+        return userlist
+    else:
+        return "no esta"
+
 if __name__ == "__Main__":
     app.run(debug=True)
