@@ -41,7 +41,7 @@ def delete():
 def put():
     leer=request.args.get("content")
     if leer=="echo":
-        return {"payload":leer}
+        return {"payload":echo}
     else:
         return "Usuario No Existe"  
 
@@ -49,7 +49,7 @@ def put():
 def init():
     un_usuario = request.args.get("content")
 
-    if un_usuario == "alfa":
+    if un_usuario == "bravo":
         return {"payload":un_usuario}
     else:  return "no esta"
 
