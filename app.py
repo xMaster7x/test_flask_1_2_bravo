@@ -37,6 +37,14 @@ def delete():
     else:
         return "no se encontró el usuario"
 
+@app.route("/put", methods=["PUT"])
+def put():
+    leer=request.args.get("content")
+    if leer=="echo":
+        return {"payload":leer}
+    else:
+        return "Usuario No Existe"  
+
 @app.route("/init")
 def init():
     un_usuario = request.args.get("content")
