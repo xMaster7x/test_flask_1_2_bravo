@@ -10,27 +10,39 @@ def inicio():
 
 @app.route("/read")
 def read():
-    contend = request.args.get('contend')
-    index = LISTA.index(contend) if contend in LISTA else False
+    contend = request.args.get('content')
+    index = LISTA.index(content) if contend in LISTA else False
     user = LISTA[index] if index else 'Usuario no encontrado'
     return {
-        "payload": user,
+        "payload": user
     }
 
 @app2.route("/create", methods=["POST"])
 def create():
     userlist = request.args.get("usuario")
     if userlist in LISTA:
-        return userlist
+        return {
+            "payload": userlist
+        }
     else:
         return "no esta"
 
-@app.route("/:init")
+@app2.route("/delete", methods=["DELETE"])
+def delete():
+    userlist = request.args.get("content")
+    if userlist in LISTA:
+        return {
+            "payload": userlist
+        }
+    else:
+        return "no se encontró el usuario"
+
+@app.route("/init")
 def init():
     un_usuario = request.args.get("content")
 
-    if un_usuario == "bravo":
-        return {"payload":"alfa"}
+    if un_usuario == "alfa":
+        return {"payload":un_usuario}
     else:  return "no esta"
 
 if __name__ == "__Main__":
